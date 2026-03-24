@@ -35,7 +35,7 @@ class ProductController extends Controller
         'code'        => 'required|string|unique:products,code',
         'name'        => 'required|string|max:250',
         'quantity'    => 'required|integer|min:1|max:10000',
-        'price'       => 'required|numeric|min:0',
+        'price'       => 'required|numeric|min:0|max_digits:6',
         'description' => 'nullable|string',
     ]);
         Product::create([
@@ -75,7 +75,7 @@ class ProductController extends Controller
         'code'        => 'required|string|max:50|unique:products,code,' . $product->product_id . ',product_id',
         'name'        => 'required|string|max:250',
         'quantity'    => 'required|integer|min:1|max:10000',
-        'price'       => 'required',
+        'price'       => 'required|min:0|max_digits:6',
         'description' => 'nullable|string',
     ]);
 
